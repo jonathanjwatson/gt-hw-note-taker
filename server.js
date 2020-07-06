@@ -1,5 +1,6 @@
 // 1. Require express
 const express = require("express");
+const path = require("path");
 // 2. Create an instance of express called app
 const app = express();
 // 3. Add a PORT
@@ -11,8 +12,10 @@ app.use(express.json());
 
 // View / HTML
 app.get("/", (req, res) => {
-    res.send("Hello world!");
-})
+  // res.send("Hello world!");
+  res.sendFile(path.join(__dirname, "./public/index.html"));
+
+});
 
 // API / JSON
 
